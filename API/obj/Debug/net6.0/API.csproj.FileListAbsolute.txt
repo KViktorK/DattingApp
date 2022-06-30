@@ -58,3 +58,4 @@ C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug
 C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\Humanizer.dll
 C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\appsettings.Development.json
