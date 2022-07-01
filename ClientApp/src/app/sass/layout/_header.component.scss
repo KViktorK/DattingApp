@@ -1,0 +1,17 @@
+.nav-container {
+  display: flex;
+  padding: 20px 50px;
+  border: 2px solid blue;
+  .logo {
+    &__label {
+      color: aqua;
+    }
+  }
+  .nav {
+    display: flex;
+  }
+  .log {
+    display: flex;
+    margin-left: auto;
+  }
+}

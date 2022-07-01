@@ -1,0 +1,20 @@
+<header class="container">
+  <nav class="nav-container">
+    <a href="" class="logo">
+      <img src="" alt="" class="logo__image" />
+      <span class="logo__label">Dating aplication</span>
+    </a>
+    <ul class="nav" *ngIf="authenticated">
+      <li class="nav__item">Matches</li>
+      <li class="nav__item">Lists</li>
+      <li class="nav__item">Messages</li>
+    </ul>
+    <ul class="log">
+      <li *ngIf="!authenticated" class="log__item">
+        <button (click)="onAuth()">LogIn</button>
+      </li>
+      <li *ngIf="authenticated" class="log__item">
+        <button (click)="onLogout()">LogOut</button></li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,38 @@
+<div class="container">
+  <form
+    #authForm="ngForm"
+    class="auth-form"
+    (ngSubmit)="authorization(authForm)"
+    autocomplete="off"
+  >
+    <h2 class="auth-form__title">{{ loginMode ? "Login" : "Sign Up" }}</h2>
+    <label for="" class="auth-form__label">
+      Name
+      <input
+        class="auth-form__input"
+        placeholder="Username"
+        type="text"
+        name="name"
+        id="name"
+        ngModel
+        required
+      />
+    </label>
+    <label for="" class="auth-form__label">
+      Password
+      <input class="auth-form__input" 
+      id="password"
+      type="text" placeholder="Password"name="password"
+      ngModel />
+    </label>
+    <div class="auth-form__btn-group">
+      <button class="auth-form__btn" type="submit">
+        {{ loginMode ? "Login" : "Sign Up" }}
+      </button>
+      |
+      <button class="auth-form__btn" (click)="onSwitchMode()" type="button">
+        Switch to {{ loginMode ? "Sign Up" : "Login" }}
+      </button>
+    </div>
+  </form>
+</div>
