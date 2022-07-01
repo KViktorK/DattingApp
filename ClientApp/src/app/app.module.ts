@@ -14,22 +14,26 @@ import { AuthComponent } from './header/components/auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './service/AuthService';
 import { ListComponent } from './pages/list/list.component';
+import { DropdownUserComponent } from './shared/components/dropdown-user/dropdown-user.component';
+import { HomeComponent } from './pages/home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-   
     ModalComponent,
-        AuthComponent,
-        ListComponent,
+    AuthComponent,
+    ListComponent,
+    DropdownUserComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [AuthService],

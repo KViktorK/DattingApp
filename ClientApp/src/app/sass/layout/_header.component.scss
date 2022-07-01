@@ -1,17 +1,41 @@
 .nav-container {
+  width: 100%;
+  border:  solid blue;
+ .container{
   display: flex;
-  padding: 20px 50px;
-  border: 2px solid blue;
   .logo {
-    &__label {
-      color: aqua;
+    padding: 20px 48px;
+    margin-right: 25px;
+    border:  solid blue;
+    color: blue;
+    &:hover{
+    background-color: blue;
+    color: white;
     }
   }
   .nav {
     display: flex;
+    &__item{
+      margin-left: 25px;
+      padding:  20px 10px;
+      border: solid  blue;
+      cursor: pointer;
+      &:first-child{
+        margin-left: 0px;
+      }
+      &:hover,&:focus{
+      background-color: blue;
+      color: white;
+      }
+    }
   }
   .log {
     display: flex;
     margin-left: auto;
-  }
+    &__item{
+    padding: 20px 48px;
+    border: solid blue;
+    }
+  }}
+  
 }

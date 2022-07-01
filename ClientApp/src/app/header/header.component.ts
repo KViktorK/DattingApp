@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscriber, Subscription } from 'rxjs';
+import { Observable, Subscriber, Subscription } from 'rxjs';
 import { AuthService } from '../service/AuthService';
 import { User } from '../shared/interface/User';
 
@@ -11,13 +11,17 @@ import { User } from '../shared/interface/User';
 export class HeaderComponent implements OnInit {
   private _userSub: Subscription;
   authenticated = false;
-
+  
+  dropdownValueChanged(e:Event){
+  
+  }
   constructor(private _authService: AuthService, private _router: Router) {}
 
   ngOnInit() {
     this._userSub = this._authService.user.subscribe({
       next: (user: User) => {
         this.authenticated = !!user;
+      
       },
     });
   }

@@ -1,0 +1,41 @@
+.dropdown-menu {
+  position: relative;
+  &__button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: -40px;
+    right: -51px;
+    border: 2px solid blue;
+    padding: 12px 20px;
+    &:hover,
+    &:focus {
+      border: 2px solid blue;
+      background-color: blue;
+      color: white;
+    }
+  }
+  &__img{
+    margin-right: 10px;
+  }
+}
+
+.dropdown-list {
+  width: 200px;
+  display: none;
+  list-style: none;
+  border: 2px solid blue;
+  position: absolute;
+  top: 40px;
+  z-index: 1;
+  right: -52px;
+  li {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    margin-right: auto;
+  }
+  &.dropdown-open {
+    display: block;
+  }
+}

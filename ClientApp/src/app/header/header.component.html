@@ -1,5 +1,5 @@
-<header class="container">
-  <nav class="nav-container">
+<header class="nav-container">
+  <nav class="container">
     <a href="" class="logo">
       <img src="" alt="" class="logo__image" />
       <span class="logo__label">Dating aplication</span>
@@ -14,7 +14,11 @@
         <button (click)="onAuth()">LogIn</button>
       </li>
       <li *ngIf="authenticated" class="log__item">
-        <button (click)="onLogout()">LogOut</button></li>
+        <app-dropdown-user
+        *ngIf="authenticated"
+          (logout)="onLogout()"
+          (currentValueChange)="dropdownValueChanged($event)"
+        ></app-dropdown-user></li>
     </ul>
   </nav>
 </header>

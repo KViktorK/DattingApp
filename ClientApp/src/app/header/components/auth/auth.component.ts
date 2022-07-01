@@ -12,6 +12,7 @@ import { User } from 'src/app/shared/interface/User';
 })
 export class AuthComponent implements OnInit {
   loginMode: boolean = true;
+
   constructor(
     private _authService: AuthService, 
     private _router: Router)
@@ -32,13 +33,12 @@ export class AuthComponent implements OnInit {
     authObservable.subscribe({
       next: (v) => {
         this._router.navigate(['/list']);
-        
       },
     });
     form.reset();
   }
 
   ngOnInit(): void {
-  
+    
   }
 }
