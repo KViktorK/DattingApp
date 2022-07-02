@@ -1,0 +1,13 @@
+<div class="list-container">
+  <table>
+    <tr>
+      <th>User</th>
+      <th>UserId</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.id }}</td>
+    </tr>
+  </table>
+</div>
+<router-outlet></router-outlet>

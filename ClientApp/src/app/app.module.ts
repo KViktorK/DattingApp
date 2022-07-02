@@ -13,9 +13,14 @@ import { ModalComponent } from './shared/components/modal/modal.component';
 import { AuthComponent } from './header/components/auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './service/AuthService';
-import { ListComponent } from './pages/list/list.component';
+import { ListsComponent } from './pages/lists/lists.component';
 import { DropdownUserComponent } from './shared/components/dropdown-user/dropdown-user.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MembersComponent } from './pages/members/members.component';
+import { MessagesComponent } from './pages/messages/messages.component';
+import { MembersDetailComponent } from './pages/members/components/members-detail/members-detail.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -24,9 +29,12 @@ import { HomeComponent } from './pages/home/home.component';
     HeaderComponent,
     ModalComponent,
     AuthComponent,
-    ListComponent,
+    ListsComponent,
     DropdownUserComponent,
     HomeComponent,
+    MembersComponent,
+    MessagesComponent,
+    MembersDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +42,10 @@ import { HomeComponent } from './pages/home/home.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ToastrModule.forRoot({
+    positionClass:'toast-top-right'
+    }),
+    NgbModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [AuthService],

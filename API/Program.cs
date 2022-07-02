@@ -29,6 +29,11 @@ builder.Services.AddCors(options =>
             });
     });
  
+builder.Services.AddAuthentication().AddGoogle(options => {
+    options.ClientId = "";
+    options.ClientSecret = "";
+});
+
 builder.Services.AddScoped<ITokenService, TokenService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

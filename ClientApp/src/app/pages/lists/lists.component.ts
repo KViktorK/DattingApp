@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/interface/User';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  selector: 'app-lists',
+  templateUrl: './lists.component.html',
+  styleUrls: ['./lists.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class ListsComponent implements OnInit {
   users: User[];
 
   constructor(private _http: HttpClient) {}

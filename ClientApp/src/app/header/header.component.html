@@ -5,9 +5,9 @@
       <span class="logo__label">Dating aplication</span>
     </a>
     <ul class="nav" *ngIf="authenticated">
-      <li class="nav__item" (click)="onRouter()">Matches</li>
-      <li class="nav__item" (click)="onRouter('list')">Lists</li>
-      <li class="nav__item">Messages</li>
+      <li class="nav__item" (click)="onRouter('members')">Matches</li>
+      <li class="nav__item" (click)="onRouter('lists')">Lists</li>
+      <li class="nav__item" (click)="onRouter('messages')">Messages</li>
     </ul>
     <ul class="log">
       <li *ngIf="!authenticated" class="log__item">

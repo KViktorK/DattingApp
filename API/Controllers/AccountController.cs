@@ -25,6 +25,10 @@ namespace API.Controllers
         {
             if (await UserExists(regDto.Name)) return BadRequest("Username is taken");
 
+            // UserManagementService -> CreateNewUser()
+            // var a = getUserFromCredentials();  AddUser(a); return UserDTO;
+            
+            // Authorization service -> getUserFromCredentials()
             using var h = new HMACSHA512();
             var u = new AppUser
 
@@ -34,9 +38,12 @@ namespace API.Controllers
                 PassworedS = h.Key
             };
 
+            // UserRepository -> AddUser()
             _context.Users.Add(u);
             await _context.SaveChangesAsync();
 
+            // var user = UserManagementService -> CreateNewUser();
+            // return Ok(user);
             return new UserDTO
             {
                 Name = u.Name,
