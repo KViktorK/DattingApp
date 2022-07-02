@@ -21,7 +21,7 @@ export class DropdownUserComponent implements OnInit {
   ];
   @Output() currentValueChange = new EventEmitter();
   @Output() logout = new EventEmitter();
- 
+  
   public dropdownOpen: boolean = false;
   
   public get dropdownElement(): Element {

@@ -5,13 +5,13 @@
       <span class="logo__label">Dating aplication</span>
     </a>
     <ul class="nav" *ngIf="authenticated">
-      <li class="nav__item">Matches</li>
-      <li class="nav__item">Lists</li>
+      <li class="nav__item" (click)="onRouter()">Matches</li>
+      <li class="nav__item" (click)="onRouter('list')">Lists</li>
       <li class="nav__item">Messages</li>
     </ul>
     <ul class="log">
       <li *ngIf="!authenticated" class="log__item">
-        <button (click)="onAuth()">LogIn</button>
+        <button (click)="onRouter('auth')">LogIn</button>
       </li>
       <li *ngIf="authenticated" class="log__item">
         <app-dropdown-user

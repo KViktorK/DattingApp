@@ -25,12 +25,13 @@ export class HeaderComponent implements OnInit {
       },
     });
   }
+  onRouter(route:string){
+    this._router.navigate([`/${route}`])
+  }
   onLogout() {
     this._authService.logout();
   }
-  onAuth(){
-  this._router.navigate(['/auth'])
-  };
+
   ngOnDestroy() {
     this._userSub.unsubscribe();
   }

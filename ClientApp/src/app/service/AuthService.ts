@@ -19,11 +19,25 @@ export class AuthService {
     return this._http.post<User>(`${this.baseUrl}account/login`, form).pipe(
       tap((data: User) => {
         const user = new User(data.name, data.token);
-        this.user.next(user);
-        localStorage.setItem('user', JSON.stringify(user));
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.user.next(user);
+        }
       })
     );
   }
+  register(form: NgForm) {
+    return this._http.post<User>(`${this.baseUrl}account/register`, form).pipe(
+      tap((data: User) => {
+        const user = new User(data.name, data.token);
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.user.next(user);
+        }
+      })
+    );
+  }
+  
   autoLogin() {
     const user: User = JSON.parse(localStorage.getItem('user'));
     this.user.next(user);

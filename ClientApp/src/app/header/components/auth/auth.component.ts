@@ -21,7 +21,9 @@ export class AuthComponent implements OnInit {
   onSwitchMode() {
     this.loginMode = !this.loginMode;
   }
-
+ onCancel(){
+  this._router.navigate(['/']);
+}
   authorization(form: NgForm) {
     if (!form.valid) {
       return console.log('Error');
@@ -29,10 +31,12 @@ export class AuthComponent implements OnInit {
     let authObservable: Observable<User>;
     if (this.loginMode) {
       authObservable = this._authService.login(form.value)
+    }else{
+      authObservable = this._authService.register(form.value)
     }
     authObservable.subscribe({
       next: (v) => {
-        this._router.navigate(['/list']);
+        this._router.navigate(['/']);
       },
     });
     form.reset();
