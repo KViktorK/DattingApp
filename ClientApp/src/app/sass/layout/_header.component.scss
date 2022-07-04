@@ -32,9 +32,14 @@
   .log {
     display: flex;
     margin-left: auto;
+    cursor: pointer;
     &__item{
     padding: 20px 48px;
     border: solid blue;
+    &:hover,&:focus{
+    background-color: blue;
+    color: white;
+    }
     }
   }}
   

@@ -1,32 +1,75 @@
-using API.Data;
-using API.Entities;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
+
+using Microsoft.AspNetCore.Authorization;
+
+using API.Model.User;
+using API.Helpers;
+using API.Interface;
 
 namespace API.Controllers
 {
 
     public class UsersController : ApiController
     {
-        private readonly DBContext _context;
-        public UsersController(DBContext context)
+        private IUserService _userService;
+        private IMapper _mapper;
+        private readonly AppSettings _appSettings;
+
+        public UsersController(
+            IUserService userService,
+            IMapper mapper,
+            IOptions<AppSettings> appSettings)
         {
-            _context = context;
+            _userService = userService;
+            _mapper = mapper;
+            _appSettings = appSettings.Value;
+        }
+
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate(AuthenticateRequest model)
+        {
+            var response = _userService.Authenticate(model);
+            return Ok(response);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public IActionResult Register(RegisterRequest model)
+        {
+            _userService.Register(model);
+            return Ok(new { message = "Registration successful" });
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+        public IActionResult GetAll()
         {
-            return await _context.Users.ToListAsync();
+            var users = _userService.GetAll();
+            return Ok(users);
         }
-        [Authorize]
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<AppUser>> GetUserById(int id)
+        public IActionResult GetById(int id)
         {
-            return await _context.Users.FindAsync(id);
+            var user = _userService.GetById(id);
+            return Ok(user);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, UpdateRequest model)
+        {
+            _userService.Update(id, model);
+            return Ok(new { message = "User updated successfully" });
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _userService.Delete(id);
+            return Ok(new { message = "User deleted successfully" });
         }
 
     }

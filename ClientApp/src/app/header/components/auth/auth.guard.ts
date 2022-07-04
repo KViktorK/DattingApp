@@ -1,7 +1,5 @@
 import {
     CanActivate,
-    ActivatedRouteSnapshot,
-    RouterStateSnapshot,
     Router,
     UrlTree
   } from '@angular/router';
@@ -32,7 +30,7 @@ import { ToastrService } from 'ngx-toastr';
           }else{
           this._toastr.error("You shall not pass!")
           }
-          return this._router.createUrlTree(['/auth']);
+          return this._router.createUrlTree(['/auth/login']);
         })
       );
     }

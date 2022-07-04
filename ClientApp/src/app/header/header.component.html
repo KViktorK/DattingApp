@@ -10,8 +10,8 @@
       <li class="nav__item" (click)="onRouter('messages')">Messages</li>
     </ul>
     <ul class="log">
-      <li *ngIf="!authenticated" class="log__item">
-        <button (click)="onRouter('auth')">LogIn</button>
+      <li (click)="onRouter('auth/login')" *ngIf="!authenticated" class="log__item">
+        <button >LogIn</button>
       </li>
       <li *ngIf="authenticated" class="log__item">
         <app-dropdown-user

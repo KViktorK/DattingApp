@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
 import { AuthComponent } from './header/components/auth/auth.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './service/AuthService';
 import { ListsComponent } from './pages/lists/lists.component';
 import { DropdownUserComponent } from './shared/components/dropdown-user/dropdown-user.component';
@@ -21,6 +21,10 @@ import { MessagesComponent } from './pages/messages/messages.component';
 import { MembersDetailComponent } from './pages/members/components/members-detail/members-detail.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegistrationComponent } from './header/components/auth/components/registration/registration.component';
+import { LoginComponent } from './header/components/auth/components/login/login.component';
+import { NotFoundComponent } from './shared/components/errors/not-found/not-found.component';
+
 
 
 @NgModule({
@@ -35,8 +39,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MembersComponent,
     MessagesComponent,
     MembersDetailComponent,
+      LoginComponent,
+    RegistrationComponent,
+    NotFoundComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

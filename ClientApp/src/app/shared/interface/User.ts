@@ -1,8 +1,19 @@
 export interface User {
   id: number;
-  name: string;
+  username: string;
   token: string;
+  firstName: string;
+  lastName: string;
+}
+export interface IAuthUser {
+  username: string;
+  password: string;
 }
 export class User {
-  constructor(public name: string, public token: string) {}
+  constructor(
+    public username: string,
+    public token: string,
+    public firstName: string,
+    public lastName: string
+  ) {}
 }

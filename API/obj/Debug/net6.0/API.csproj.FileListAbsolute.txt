@@ -61,3 +61,7 @@ C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug
 C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\vikto\OneDrive\Рабочий стол\Project\DattingApp\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

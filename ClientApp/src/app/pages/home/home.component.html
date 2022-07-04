@@ -1,5 +1,4 @@
-
-  <div class="home">
+<div class="home" *ngIf="!user">
     <h1 class="home__title">Find new friend</h1>
     <p class="home__text">All you need to do is sign up!</p>
     <div class="home__btns">
@@ -7,4 +6,6 @@
         <button class="home__btns_item">Learn more</button>
     </div>
   </div>
-
+<div *ngIf="user" class="home">
+  home-component
+</div>

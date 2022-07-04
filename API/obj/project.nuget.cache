@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "vkMP3L3+O1yGUflupDfzRIowKaQ83t0z13gooKprLws4bHQ8f6DuNjXzXWb+TUPM3tIlVp6BLyPShbBjFm2kAg==",
+  "dgSpecHash": "vybEycfj7+nYJ73C7V44u1EWgRClQMmpbTcIsjTSQvHGmO1AjrZHWVli2BgdC95c944hoRN98qR243Pkfl1ynw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\vikto\\OneDrive\\Рабочий стол\\Project\\DattingApp\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\vikto\\OneDrive\\Рабочий стол\\Project\\DattingApp\\API\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\vikto\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\vikto\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\vikto\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -24,7 +27,7 @@
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.aspnetcore.identity\\2.2.0\\microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
-    "C:\\Users\\vikto\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\vikto\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.6\\microsoft.entityframeworkcore.6.0.6.nupkg.sha512",

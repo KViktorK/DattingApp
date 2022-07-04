@@ -16,9 +16,9 @@ export class AuthService {
   constructor(private _http: HttpClient, private _router: Router) {}
 
   login(form: NgForm) {
-    return this._http.post<User>(`${this.baseUrl}account/login`, form).pipe(
+    return this._http.post<User>(`${this.baseUrl}Users/authenticate`, form).pipe(
       tap((data: User) => {
-        const user = new User(data.name, data.token);
+        const user = new User(data.username, data.token, data.firstName,data.lastName);
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
           this.user.next(user);
@@ -27,9 +27,9 @@ export class AuthService {
     );
   }
   register(form: NgForm) {
-    return this._http.post<User>(`${this.baseUrl}account/register`, form).pipe(
+    return this._http.post<User>(`${this.baseUrl}Users/register`, form).pipe(
       tap((data: User) => {
-        const user = new User(data.name, data.token);
+        const user = new User(data.username, data.token, data.firstName,data.lastName);
         if (user) {
           localStorage.setItem('user', JSON.stringify(user));
           this.user.next(user);
@@ -45,7 +45,7 @@ export class AuthService {
 
   logout() {
     this.user.next(null);
-    this._router.navigate(['/auth']);
+    this._router.navigate(['/auth/login']);
     localStorage.removeItem('user');
   }
 }

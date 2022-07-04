@@ -1,0 +1,63 @@
+<div class="container">
+    <form
+      [formGroup]="form"
+      class="auth-form"
+      (ngSubmit)="onSubmit()"
+      autocomplete="off"
+    >
+      <h2 class="auth-form__title">Registration</h2>
+      <label for="" class="auth-form__label">
+        First Name
+        <input
+          class="auth-form__input"
+          type="text"
+          formControlName="firstname"
+          required
+        />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">First Name is required</div>
+        </div>
+      </label>
+      <label for="" class="auth-form__label">
+        Last Name
+        <input
+          class="auth-form__input"
+          type="text"
+          formControlName="lastname"
+          required
+        />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Last Name is required</div>
+        </div>
+      </label>
+      <label for="" class="auth-form__label">
+        Username
+        <input
+          class="auth-form__input"
+          type="text"
+          formControlName="username"
+          required
+        />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+      </label>
+      <label for="" class="auth-form__label">
+        Password
+        <input 
+        class="auth-form__input" 
+        type="text" 
+        formControlName="password"
+        required />
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Password is required</div>
+        </div>
+      </label>
+      <div class="auth-form__btn-group">
+        <button class="auth-form__btn" type="submit">
+            Register
+        </button>
+        <button type="button" (click)="onRouter('auth/login')" class="auth-form__btn-reg" href="">Cancel</button>
+      </div>
+    </form>
+  </div>

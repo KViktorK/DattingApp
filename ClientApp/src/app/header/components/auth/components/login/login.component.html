@@ -1,0 +1,43 @@
+<form
+  [formGroup]="form"
+  class="auth-form container"
+  (ngSubmit)="onSubmit()"
+  autocomplete="off"
+>
+  <h2 class="auth-form__title">Login</h2>
+  <label for="" class="auth-form__label">
+    Username
+    <input
+      class="auth-form__input"
+      type="text"
+      formControlName="username"
+      required
+    />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+    </div>
+  </label>
+  <label for="" class="auth-form__label">
+    Password
+    <input
+      class="auth-form__input"
+      type="text"
+      formControlName="password"
+      required
+    />
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+    </div>
+  </label>
+  <div class="auth-form__btn-group">
+    <button class="auth-form__btn" type="submit">Login</button>
+    <button
+      type="button"
+      (click)="onRouter('auth/registration')"
+      class="auth-form__btn-reg"
+      href=""
+    >
+      Register
+    </button>
+  </div>
+</form>
