@@ -1,7 +1,7 @@
 using API.Authorization;
+using API.Controllers;
 using API.Data;
 using API.Helpers;
-using API.Middleware;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,14 +23,14 @@ services.AddAuthentication();
 services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 // configure DI for application services
-services.AddScoped<JwtUtils>();
-services.AddScoped<UserService>();
+services.AddScoped<IJwtUtils, JwtUtils>();
+services.AddScoped<IUserService, UserService>();
 
 //builder.Services.AddScoped<ITokenService, TokenService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
-
+services.AddHttpClient();
 
 
 var app = builder.Build();

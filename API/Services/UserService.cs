@@ -5,7 +5,8 @@ using API.Entities;
 using API.Helpers;
 using API.Model.User;
 using AutoMapper;
-using API.Interface;
+using API.Controllers;
+using API.Authorization;
 
 public class UserService : IUserService
 {

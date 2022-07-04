@@ -1,6 +1,6 @@
 using API.Entities;
 using API.Helpers;
-using API.Interface;
+
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -8,7 +8,11 @@ using System.Security.Claims;
 using System.Text;
 
 namespace API.Authorization;
-
+ public interface IJwtUtils
+    {
+        public string GenerateToken(User user);
+        public int? ValidateToken(string token);
+    }
 public class JwtUtils : IJwtUtils
 {
     private readonly AppSettings _appSettings;

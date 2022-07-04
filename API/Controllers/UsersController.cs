@@ -7,10 +7,18 @@ using Microsoft.AspNetCore.Authorization;
 
 using API.Model.User;
 using API.Helpers;
-using API.Interface;
+using API.Entities;
 
 namespace API.Controllers
-{
+{    public interface IUserService
+    {
+    AuthenticateResponse Authenticate(AuthenticateRequest model);
+    IEnumerable<User> GetAll();
+    User GetById(int id);
+    void Register(RegisterRequest model);
+    void Update(int id, UpdateRequest model);
+    void Delete(int id);
+    }
 
     public class UsersController : ApiController
     {

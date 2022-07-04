@@ -1,6 +1,5 @@
 
-using API.Interface;
-
+using API.Controllers;
 namespace API.Authorization
 {
     public class JwtMiddleware
