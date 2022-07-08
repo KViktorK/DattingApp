@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bwPJFOWba3FGQg+W1Dy+t3PosSMOykp6u5iA7mLTozt/DrmEaf9l1gxxhsP5thxul2ZTgoQn+sDkoWzyJ24mgw==",
+  "dgSpecHash": "FlFT0R4/bGf+q+ENDVEkLJGnbrdcCG2pcc79ffJsRMyCfhYn81giZ7nk2Rg7TmSB6ycfgJoHEBUB3uPsqqeEXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vikto\\OneDrive\\Рабочий стол\\Project\\DattingApp\\API\\API.csproj",
+  "projectFilePath": "E:\\DattingApp\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vikto\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\vikto\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

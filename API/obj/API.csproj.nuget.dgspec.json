@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vikto\\OneDrive\\Рабочий стол\\Project\\DattingApp\\API\\API.csproj": {}
+    "E:\\DattingApp\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vikto\\OneDrive\\Рабочий стол\\Project\\DattingApp\\API\\API.csproj": {
+    "E:\\DattingApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vikto\\OneDrive\\Рабочий стол\\Project\\DattingApp\\API\\API.csproj",
+        "projectUniqueName": "E:\\DattingApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\vikto\\OneDrive\\Рабочий стол\\Project\\DattingApp\\API\\API.csproj",
+        "projectPath": "E:\\DattingApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\vikto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vikto\\OneDrive\\Рабочий стол\\Project\\DattingApp\\API\\obj\\",
+        "outputPath": "E:\\DattingApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vikto\\AppData\\Roaming\\NuGet\\NuGet.Config",

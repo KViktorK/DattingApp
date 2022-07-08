@@ -48,14 +48,10 @@ export class LoginComponent implements OnInit {
       next: (v) => {
         const returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
         this._router.navigateByUrl(returnUrl);
-      },
-      error: ({ error }) => {
-        console.log(error)
-        this._toastr.error(error.message);
-        this.loading = false;
+        this.form.reset();
       },
     });
-    this.form.reset();
+
   }
   initForm(){
     this.form = new FormGroup({

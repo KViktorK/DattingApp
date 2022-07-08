@@ -1,82 +1,57 @@
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-
-
-using Microsoft.AspNetCore.Authorization;
-
 using API.Model.User;
-using API.Helpers;
+using API.Interface;
 using API.Entities;
+using API.Authorization;
 
 namespace API.Controllers
-{    public interface IUserService
-    {
-    AuthenticateResponse Authenticate(AuthenticateRequest model);
-    IEnumerable<User> GetAll();
-    User GetById(int id);
-    void Register(RegisterRequest model);
-    void Update(int id, UpdateRequest model);
-    void Delete(int id);
-    }
-
+{
+    [Authorize]
     public class UsersController : ApiController
     {
-        private IUserService _userService;
-        private IMapper _mapper;
-        private readonly AppSettings _appSettings;
+
+
+        private readonly IUserRepository _userRepository;
 
         public UsersController(
-            IUserService userService,
-            IMapper mapper,
-            IOptions<AppSettings> appSettings)
+           IUserRepository userRepository)
         {
-            _userService = userService;
-            _mapper = mapper;
-            _appSettings = appSettings.Value;
+            _userRepository = userRepository;
+
         }
 
-        [AllowAnonymous]
-        [HttpPost("authenticate")]
-        public IActionResult Authenticate(AuthenticateRequest model)
-        {
-            var response = _userService.Authenticate(model);
-            return Ok(response);
-        }
 
-        [AllowAnonymous]
-        [HttpPost("register")]
-        public IActionResult Register(RegisterRequest model)
-        {
-            _userService.Register(model);
-            return Ok(new { message = "Registration successful" });
-        }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
         {
-            var users = _userService.GetAll();
+            var users = await _userRepository.GetAllUserAsync();
             return Ok(users);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
-        {
-            var user = _userService.GetById(id);
-            return Ok(user);
-        }
+        // [HttpGet("{id}")]
+        // public async Task<ActionResult<User>> GetById(int id)
+        // {
+        //     var user = await _userRepository.GetUserByIdAsync(id);
+        //     return Ok(user);
+        // }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, UpdateRequest model)
+        [HttpGet("{username}")]
+        public async Task<ActionResult<User>> GetByUsername(string username)
         {
-            _userService.Update(id, model);
+            return await _userRepository.GetUserByUsernameAsync(username);
+        }
+        [HttpPut("{id}")]
+        public ActionResult Update(int id, UpdateRequest model)
+        {
+            _userRepository.Update(id, model);
             return Ok(new { message = "User updated successfully" });
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _userService.Delete(id);
+            _userRepository.Delete(id);
             return Ok(new { message = "User deleted successfully" });
         }
 

@@ -64,7 +64,7 @@ public class JwtUtils : IJwtUtils
         }
         catch
         {
-            // return null if validation fails
+         // return null if validation fails
             return null;
         }
     }

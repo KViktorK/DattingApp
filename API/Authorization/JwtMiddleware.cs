@@ -1,5 +1,7 @@
 
 using API.Controllers;
+using API.Interface;
+
 namespace API.Authorization
 {
     public class JwtMiddleware
@@ -11,16 +13,15 @@ namespace API.Authorization
             _next = next;
 
         }
-        public async Task Invoke(HttpContext context, IUserService userService, IJwtUtils jwtUtils)
+        public async Task Invoke(HttpContext context, IUserRepository userRepository, IJwtUtils jwtUtils)
         {
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
             var userId = jwtUtils.ValidateToken(token);
             if (userId != null)
             {
                 // attach user to context on successful jwt validation
-                context.Items["User"] = userService.GetById(userId.Value);
+                context.Items["User"] = userRepository.GetUserByIdAsync(userId.Value);
             }
-
             await _next(context);
         }
     }

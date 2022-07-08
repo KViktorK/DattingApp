@@ -4,7 +4,7 @@ import {
   NO_ERRORS_SCHEMA,
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './header/components/auth/components/registration/registration.component';
 import { LoginComponent } from './header/components/auth/components/login/login.component';
 import { NotFoundComponent } from './shared/components/errors/not-found/not-found.component';
+import { ErrorIntercept } from './_interceptors/error.interceptor';
 
 
 
@@ -39,7 +40,7 @@ import { NotFoundComponent } from './shared/components/errors/not-found/not-foun
     MembersComponent,
     MessagesComponent,
     MembersDetailComponent,
-      LoginComponent,
+    LoginComponent,
     RegistrationComponent,
     NotFoundComponent,
   ],
@@ -56,7 +57,11 @@ import { NotFoundComponent } from './shared/components/errors/not-found/not-foun
     NgbModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [AuthService],
+  providers: [AuthService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorIntercept,
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

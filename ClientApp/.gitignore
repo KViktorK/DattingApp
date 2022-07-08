@@ -5,7 +5,7 @@ ssl
 /tmp
 /out-tsc
 /bazel-out
-
+/ssl
 # Node
 /node_modules
 npm-debug.log

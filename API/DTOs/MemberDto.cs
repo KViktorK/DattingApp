@@ -1,32 +1,23 @@
-using System.Text.Json.Serialization;
-using API.Extensions;
 
-namespace API.Entities
+namespace API.DTOs
 {
-    public class User
+    public class MemberDto
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserName { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public int age { get; set; }
         public string KnownAs { get; set; }
-        public DateTime Created { get; set; } = DateTime.Now;
-        public DateTime LastActive { get; set; } = DateTime.Now;
+        public DateTime Created { get; set; } 
+        public DateTime LastActive { get; set; } 
         public string Gender { get; set; }
         public string Introduction { get; set; }
         public string LookingFor { get; set; }
         public string Interests { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        public ICollection<Photo> Photos { get; set; }
-        [JsonIgnore]
-        public string PasswordHash { get; set; }
+        public ICollection<PhotoDto> Photos { get; set; }
 
-
-        public int GetAge()
-        {
-            return DateOfBirth.CalculateAge();
-        }
     }
 }
