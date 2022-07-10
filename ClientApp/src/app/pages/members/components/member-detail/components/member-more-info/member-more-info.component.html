@@ -1,0 +1,24 @@
+<div class="tab">
+  <button id="about" (click)="tabChange('about')">About {{ member?.knownAs }}</button>
+  <button id="interests" (click)="tabChange('interests')">Interests</button>
+  <button id="photos"(click)="tabChange('photos')">Photos</button>
+  <button id="messages"(click)="tabChange('messages')">Messages</button>
+</div>
+<div class="content">
+  <div class="content__item" *ngIf="id === 'about'">
+    <h4>Description</h4>
+    <p>{{member?.introduction}}</p>
+    <h4>Looking for</h4>
+    <p>{{member?.lookingFor}}</p>
+  </div>
+  <div class="content__item"  *ngIf="id === 'interests'">
+    <h4>Interests</h4>
+    <p>{{member.interests}}</p>
+  </div>
+  <div class="content__item gallery-wrapper"  *ngIf="id === 'photos'">
+    <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+  </div>
+  <div class="content__item"  *ngIf="id === 'messages'">
+    <h2>Messages will go here</h2>
+  </div>
+</div>

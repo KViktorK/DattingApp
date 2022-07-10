@@ -60,7 +60,7 @@ public class JwtUtils : IJwtUtils
             var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
             // return user id from JWT token if validation successful
-            return userId;
+            return  userId;
         }
         catch
         {

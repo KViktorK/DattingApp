@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/shared/interface/User';
+import { User } from 'src/app/shared/interface/IUser';
 
 @Component({
   selector: 'app-lists',
@@ -21,6 +21,6 @@ export class ListsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUsers();
+    //this.getUsers();
   }
 }

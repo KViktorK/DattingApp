@@ -16,17 +16,22 @@ import { AuthService } from './service/AuthService';
 import { ListsComponent } from './pages/lists/lists.component';
 import { DropdownUserComponent } from './shared/components/dropdown-user/dropdown-user.component';
 import { HomeComponent } from './pages/home/home.component';
-import { MembersComponent } from './pages/members/members.component';
 import { MessagesComponent } from './pages/messages/messages.component';
-import { MembersDetailComponent } from './pages/members/components/members-detail/members-detail.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './header/components/auth/components/registration/registration.component';
 import { LoginComponent } from './header/components/auth/components/login/login.component';
 import { NotFoundComponent } from './shared/components/errors/not-found/not-found.component';
 import { ErrorIntercept } from './_interceptors/error.interceptor';
-
-
+import { MemberListComponent } from './pages/members/components/member-list/member-list.component';
+import { MemberDetailComponent } from './pages/members/components/member-detail/member-detail.component';
+import { MembersService } from './service/MembersService';
+import { MemberComponent } from './pages/members/member.component';
+import { MemberCardComponent } from './pages/members/components/member-card/member-card.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { MemberDetailCardComponent } from './pages/members/components/member-detail/components/member-detail-card/member-detail-card.component';
+import { MemberMoreInfoComponent } from './pages/members/components/member-detail/components/member-more-info/member-more-info.component';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -37,12 +42,17 @@ import { ErrorIntercept } from './_interceptors/error.interceptor';
     ListsComponent,
     DropdownUserComponent,
     HomeComponent,
-    MembersComponent,
+    HeaderComponent,
     MessagesComponent,
-    MembersDetailComponent,
+    MemberDetailComponent,
     LoginComponent,
     RegistrationComponent,
     NotFoundComponent,
+    MemberListComponent,
+    MemberComponent,
+    MemberCardComponent,
+    MemberDetailCardComponent,
+    MemberMoreInfoComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -52,16 +62,25 @@ import { ErrorIntercept } from './_interceptors/error.interceptor';
     BrowserAnimationsModule,
     FormsModule,
     ToastrModule.forRoot({
-    positionClass:'toast-top-right'
+      positionClass: 'toast-top-right',
     }),
-    NgbModule
+    NgbModule,
+    NgxGalleryModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [AuthService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: ErrorIntercept,
-    multi: true
-  }],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorIntercept,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

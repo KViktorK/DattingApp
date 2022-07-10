@@ -1,0 +1,15 @@
+<div class="member-detail-card">
+  <img
+    class="member-detail-card__img"
+    [src]="member?.photoUrl"
+    [alt]="member?.knownAs"
+  />
+  <div class="member-detail-card__city">City: {{ member?.city }}</div>
+  <div class="member-detail-card__age">Age: {{ member?.age }}</div>
+  <div class="member-detail-card__last-active">Last active: {{ member?.lastActive }}</div>
+  <div class="member-detail-card__since">Since: {{ member?.created }}</div>
+  <div class="member-detail-card__btns">
+    <button class="btn">Like</button>
+    <button class="btn">Message</button>
+  </div>
+</div>

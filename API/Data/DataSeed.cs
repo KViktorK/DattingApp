@@ -17,7 +17,7 @@ namespace API.Data
 
             foreach (var user in users)
             {
-                user.UserName = user.UserName.ToLower();
+                user.Username = user.Username.ToLower();
                 user.PasswordHash = BCrypt.HashPassword("Password");
 
                 context.Users.Add(user);

@@ -7,7 +7,9 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Data.Repositories
 {
     using API.Authorization;
+    using API.DTOs;
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using BCrypt.Net;
     public class UserRepository : IUserRepository
     {
@@ -17,7 +19,8 @@ namespace API.Data.Repositories
         private readonly IMapper _mapper;
 
 
-        public UserRepository(DBContext context,
+        public UserRepository(
+        DBContext context,
         IJwtUtils jwtUtils,
         IMapper mapper)
         {
@@ -28,28 +31,28 @@ namespace API.Data.Repositories
 
         public async void Delete(int id)
         {
-            var user = await GetUserByIdAsync(id);
+            var user = GetUserByIdAsync(id);
             _context.Users.Remove(user);
             await SaveAllAsync();
         }
 
-        public async Task<IEnumerable<User>> GetAllUserAsync()
+        public IEnumerable<User> GetAllUserAsync()
         {
-            return await _context.Users
+            return _context.Users
             .Include(p=>p.Photos)
-            .ToListAsync();
+            .ToList();
         }
 
-        public async Task<User> GetUserByIdAsync(int id)
+        public  User GetUserByIdAsync(int id)
         {
-            return await _context.Users.FindAsync(id);
+            return  _context.Users.Find(id);
         }
 
         public async Task<User> GetUserByUsernameAsync(string username)
         {
             return await _context.Users
             .Include(p=>p.Photos)
-            .SingleOrDefaultAsync(x => x.UserName == username);
+            .SingleOrDefaultAsync(x => x.Username == username);
         }
 
         public async Task<bool> SaveAllAsync()
@@ -59,10 +62,10 @@ namespace API.Data.Repositories
 
         public async void Update(int id, UpdateRequest model)
         {
-            var user = await GetUserByIdAsync(id);
+            var user = GetUserByIdAsync(id);
 
             // validate
-            if (model.Username != user.UserName && _context.Users.Any(x => x.UserName == model.Username))
+            if (model.Username != user.Username && _context.Users.Any(x => x.Username == model.Username))
                 throw new AppException("Username '" + model.Username + "' is already taken");
 
 
@@ -72,6 +75,21 @@ namespace API.Data.Repositories
             _mapper.Map(model, user);
             _context.Users.Update(user);
             await SaveAllAsync();
+        }
+
+        public IEnumerable<MemberDto> GetMembers()
+        {
+            return _context.Users
+            .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
+            .ToList();
+        }
+
+        public async Task<MemberDto> GetMemberAsync(string username)
+        {
+            return await _context.Users
+            .Where(x=>x.Username== username)
+            .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
+            .SingleOrDefaultAsync();
         }
     }
 }

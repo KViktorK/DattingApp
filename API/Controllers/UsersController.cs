@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using API.Model.User;
 using API.Interface;
-using API.Entities;
+using API.DTOs;
+using AutoMapper;
 using API.Authorization;
 
 namespace API.Controllers
@@ -12,37 +13,31 @@ namespace API.Controllers
 
 
         private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
         public UsersController(
-           IUserRepository userRepository)
+           IUserRepository userRepository,
+           IMapper mapper)
         {
+            _mapper = mapper;
             _userRepository = userRepository;
 
         }
 
-
-
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
+        public ActionResult<IEnumerable<MemberDto>> GetAllUsers()
         {
-            var users = await _userRepository.GetAllUserAsync();
+            var users = _userRepository.GetMembers();
             return Ok(users);
         }
 
-        // [HttpGet("{id}")]
-        // public async Task<ActionResult<User>> GetById(int id)
-        // {
-        //     var user = await _userRepository.GetUserByIdAsync(id);
-        //     return Ok(user);
-        // }
-
         [HttpGet("{username}")]
-        public async Task<ActionResult<User>> GetByUsername(string username)
+        public async Task<ActionResult<MemberDto>> GetByUsername(string username)
         {
-            return await _userRepository.GetUserByUsernameAsync(username);
+            return await _userRepository.GetMemberAsync(username);
         }
         [HttpPut("{id}")]
-        public ActionResult Update(int id, UpdateRequest model)
+        public IActionResult Update(int id, UpdateRequest model)
         {
             _userRepository.Update(id, model);
             return Ok(new { message = "User updated successfully" });

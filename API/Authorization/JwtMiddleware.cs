@@ -1,5 +1,3 @@
-
-using API.Controllers;
 using API.Interface;
 
 namespace API.Authorization

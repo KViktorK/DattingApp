@@ -1,0 +1,28 @@
+.member-detail-card {
+ 
+
+  &__img {
+    border: 2px solid blue;
+    width: 100%;
+  }
+  &__city {
+    border: 2px solid blue;
+  }
+  &__age {
+    border: 2px solid blue;
+  }
+  &__last-active {
+    border: 2px solid blue;
+  }
+  &__since {
+    border: 2px solid blue;
+  }
+  &__btns {
+    border: 2px solid blue;
+    display: flex;
+    justify-content: space-between;
+    .btn {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<div class="card">
+  <img class="card__img" [src]="member.photoUrl||'./assets/user.png'" [alt]="member.knownAs" />
+  <div class="overlay">
+    <ul class="card__button">
+      <li 
+      (click)="onRouter(member.userName)"
+      class="item"  >
+        <svg class="bi" width="32" height="32">
+          <use xlink:href="bootstrap-icons.svg#person-circle" />
+        </svg>
+      </li>
+      <li class="item">
+        <svg class="bi" width="32" height="32">
+          <use xlink:href="bootstrap-icons.svg#chat-dots" />
+        </svg>
+      </li>
+    </ul>
+  </div>
+  <p class="card__name">{{ member.knownAs }}</p>
+  <p class="card__city">{{ member.city }}</p>
+</div>

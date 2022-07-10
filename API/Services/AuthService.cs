@@ -25,7 +25,7 @@ namespace API.Services
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
-            var user = _context.Users.SingleOrDefault(x => x.UserName == model.Username);
+            var user = _context.Users.SingleOrDefault(x => x.Username == model.Username);
 
             // validate
             if (user == null || !BCrypt.Verify(model.Password, user.PasswordHash))
@@ -39,7 +39,7 @@ namespace API.Services
         public void Register(RegisterRequest model)
         {
             // validate
-            if (_context.Users.Any(x => x.UserName == model.Username))
+            if (_context.Users.Any(x => x.Username == model.Username))
                 throw new AppException("Username '" + model.Username + "' is already taken");
 
             // map model to new user object

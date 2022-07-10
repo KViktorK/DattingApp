@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscriber, Subscription } from 'rxjs';
 import { AuthService } from '../service/AuthService';
-import { User } from '../shared/interface/User';
+import { User } from '../shared/interface/IUser';
 
 @Component({
   selector: 'app-header',

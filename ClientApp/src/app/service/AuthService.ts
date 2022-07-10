@@ -2,21 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
-import { User } from '../shared/interface/User';
+import { User } from '../shared/interface/IUser';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  baseUrl = 'https://localhost:5000/api/';
+  baseUrl = environment.apiUrl;
 
   user = new BehaviorSubject<User>(null);
 
   constructor(private _http: HttpClient, private _router: Router) {}
 
   login(form: NgForm) {
-    return this._http.post<User>(`${this.baseUrl}Users/authenticate`, form).pipe(
+    return this._http.post<User>(`${this.baseUrl}Auth/authenticate`, form).pipe(
       tap((data: User) => {
         const user = new User(data.username, data.token, data.firstName,data.lastName);
         if (user) {
@@ -27,7 +28,7 @@ export class AuthService {
     );
   }
   register(form: NgForm) {
-    return this._http.post<User>(`${this.baseUrl}Users/register`, form).pipe(
+    return this._http.post<User>(`${this.baseUrl}Auth/register`, form).pipe(
       tap((data: User) => {
         const user = new User(data.username, data.token, data.firstName,data.lastName);
         if (user) {

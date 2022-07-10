@@ -47,7 +47,6 @@ class Program
                 {
                     var dataContext = scope.ServiceProvider.GetRequiredService<DBContext>();
                     await dataContext.Database.MigrateAsync();
-                    await DataSeed.SeedUsers(dataContext);
                 }
                 catch (Exception ex)
                 {
@@ -77,7 +76,7 @@ class Program
 
         app.MapControllers();
 
-        await app.RunAsync();
+        app.Run();
 
 
     }

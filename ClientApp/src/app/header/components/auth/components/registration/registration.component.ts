@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/service/AuthService';
-import { User } from 'src/app/shared/interface/User';
+import { User } from 'src/app/shared/interface/IUser';
 
 @Component({
   selector: 'app-registration',
